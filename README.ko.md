@@ -17,6 +17,8 @@ brew install --cask hidpi
 
 또는 [Releases](https://github.com/hulryung/hidpi/releases) 페이지에서 최신 DMG를 다운로드하세요.
 
+설치 후 DDC/CI를 통한 키보드 밝기 키 동기화를 사용하려면 **시스템 설정 > 개인정보 보호 및 보안 > 손쉬운 사용**에서 앱 권한을 허용해야 합니다.
+
 ## 어떤 앱인가
 
 HiDPI는 macOS에서 외장 모니터를 제어하기 위한 두 가지 도구를 제공합니다:

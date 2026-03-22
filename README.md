@@ -17,6 +17,8 @@ brew install --cask hidpi
 
 Or download the latest DMG from [Releases](https://github.com/hulryung/hidpi/releases).
 
+After installation, grant **Accessibility** permission in **System Settings > Privacy & Security > Accessibility** to enable keyboard brightness key sync with external monitors via DDC/CI.
+
 ## What It Does
 
 HiDPI provides two tools for controlling external monitors on macOS:
