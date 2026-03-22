@@ -2,6 +2,8 @@
 
 A macOS tool for managing HiDPI settings and brightness on external monitors.
 
+![HiDPI App Screenshot](docs/screenshot.png)
+
 ## Why I Built This
 
 I tend to build my own tools whenever existing Mac software doesn't quite work the way I need. Apps like BetterDisplay and Display Buddy handle HiDPI and display management well in general, but DDC/CI brightness control never worked reliably with my monitors — a 27-inch LG 4K and a 32-inch LG 4K. It was frustrating enough that I decided to build something tailored to my setup, learning about macOS display internals along the way. The entire project was vibe-coded: I described the features I wanted and iterated from there.
