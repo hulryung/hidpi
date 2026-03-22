@@ -44,6 +44,7 @@ mkdir -p "${APP_PATH}/Contents/Resources"
 
 cp "$HIDPI_APP_BIN" "${APP_PATH}/Contents/MacOS/${APP_NAME}"
 cp "$HIDPI_TOOL_BIN" "${APP_PATH}/Contents/MacOS/hidpi-cli"
+cp "HiDPIApp/Resources/AppIcon.icns" "${APP_PATH}/Contents/Resources/AppIcon.icns"
 
 # Info.plist
 cat > "${APP_PATH}/Contents/Info.plist" << PLIST
