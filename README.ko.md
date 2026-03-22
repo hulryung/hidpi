@@ -8,6 +8,15 @@ macOS 외장 모니터 HiDPI 설정 및 밝기 관리 도구
 
 Mac을 사용하면서 필요한 소프트웨어가 뭔가 불편하면 직접 만드는 편입니다. BetterDisplay나 Display Buddy 같은 앱들이 HiDPI와 디스플레이 관리를 지원하고 있지만, DDC/CI 밝기 조절이 제가 쓰는 모니터 — 27인치 LG 4K, 32인치 LG 4K — 에서 제대로 동작하지 않아서 괴로웠습니다. 그래서 공부도 할 겸, 제 환경에 맞는 도구를 직접 만들기로 했습니다. 전체 프로젝트는 기능만 요청하면서 바이브 코딩으로 만들었습니다.
 
+## 설치
+
+```bash
+brew tap hulryung/tap
+brew install --cask hidpi
+```
+
+또는 [Releases](https://github.com/hulryung/hidpi/releases) 페이지에서 최신 DMG를 다운로드하세요.
+
 ## 어떤 앱인가
 
 HiDPI는 macOS에서 외장 모니터를 제어하기 위한 두 가지 도구를 제공합니다:
