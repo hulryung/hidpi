@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private var popover: NSPopover?
     private var eventMonitor: Any?
+    private var settingsWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupMonitoring()
@@ -20,6 +21,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupClickOutsideMonitor()
         restoreVirtualDisplays()
         brightnessKeyMonitor.start()
+
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(handleOpenSettings),
+            name: .openSettings, object: nil
+        )
+    }
+
+    @objc private func handleOpenSettings() {
+        popover?.performClose(nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.openSettingsWindow()
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -96,6 +109,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // Bring to front
             NSApp.activate(ignoringOtherApps: true)
         }
+    }
+
+    // MARK: - Settings Window
+
+    func openSettingsWindow() {
+        if let window = settingsWindow {
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+
+        let settingsView = SettingsView()
+            .environmentObject(displayManager)
+
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 580, height: 500),
+            styleMask: [.titled, .closable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "HiDPI Settings"
+        window.contentViewController = NSHostingController(rootView: settingsView)
+        window.center()
+        window.isReleasedWhenClosed = false
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        settingsWindow = window
     }
 
     // MARK: - Login at Start

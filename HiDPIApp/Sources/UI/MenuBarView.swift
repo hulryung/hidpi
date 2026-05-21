@@ -128,12 +128,15 @@ struct MenuBarView: View {
     // MARK: - Actions
 
     private func openSettings() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-        NSApp.activate(ignoringOtherApps: true)
+        NotificationCenter.default.post(name: .openSettings, object: nil)
     }
 }
 
 // MARK: - Rollback Banner
+
+extension Notification.Name {
+    static let openSettings = Notification.Name("com.huconn.hidpi.openSettings")
+}
 
 struct RollbackBannerView: View {
     let deadline: Date
